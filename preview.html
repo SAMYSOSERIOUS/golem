@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>GOLEM Intelligence & Evidence</title>
+
+<style>
+
+/* ============================================================= */
+/* GOLEM PHASE 7 - PAGE 4 DDC                                    */
+/* ============================================================= */
+
+:root {
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+
+    --text: #162235;
+    --muted: #667085;
+    --border: #d9e0e8;
+
+    --navy: #14263d;
+    --blue: #1f6fb2;
+    --blue-soft: #eaf3fb;
+
+    --green: #19764a;
+    --green-soft: #eaf6ef;
+
+    --amber: #a86600;
+    --amber-soft: #fff5df;
+
+    --red: #b42318;
+    --red-soft: #fff0ee;
+
+    --radius: 10px;
+
+    --shadow:
+        0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+
+/* ============================================================= */
+/* BASE                                                          */
+/* ============================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: var(--text);
+    background: var(--bg);
+
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+
+/* ============================================================= */
+/* APP                                                           */
+/* ============================================================= */
+
+#golem-app {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 14px;
+}
+
+
+/* ============================================================= */
+/* HEADER                                                        */
+/* ============================================================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 16px;
+
+    padding: 2px 2px 12px 2px;
+}
+
+.header-title {
+    margin: 0;
+
+    color: var(--navy);
+
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.header-subtitle {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.header-status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    white-space: nowrap;
+
+    border: 1px solid #b7dec8;
+    border-radius: 999px;
+
+    padding: 5px 10px;
+
+    background: var(--green-soft);
+    color: var(--green);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+}
+
+
+/* ============================================================= */
+/* CONTEXT STRIP                                                 */
+/* ============================================================= */
+
+.context-strip {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(120px, 1fr));
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+}
+
+.context-item {
+    min-width: 0;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 9px 11px;
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow);
+}
+
+.context-label {
+    margin-bottom: 3px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.context-value {
+    overflow: hidden;
+
+    color: var(--navy);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* ============================================================= */
+/* CARDS                                                         */
+/* ============================================================= */
+
+.card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px 12px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: var(--surface-soft);
+}
+
+.card-title {
+    margin: 0;
+
+    color: var(--navy);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.card-kicker {
+    color: var(--muted);
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+}
+
+.card-body {
+    padding: 11px 12px;
+}
+
+
+/* ============================================================= */
+/* DECISION HERO                                                 */
+/* ============================================================= */
+
+.decision-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(0, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.decision-main {
+    border-left: 4px solid var(--blue);
+}
+
+.action-main {
+    border-left: 4px solid var(--navy);
+}
+
+.hero-code {
+    margin-bottom: 4px;
+
+    color: var(--navy);
+
+    font-size: 19px;
+    font-weight: 750;
+
+    overflow-wrap: anywhere;
+}
+
+.hero-description {
+    color: var(--text);
+
+    font-size: 12px;
+}
+
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 10px;
+}
+
+
+/* ============================================================= */
+/* PILLS                                                         */
+/* ============================================================= */
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+
+    border-radius: 999px;
+
+    padding: 3px 7px;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.pill-blue {
+    color: var(--blue);
+    background: var(--blue-soft);
+}
+
+.pill-green {
+    color: var(--green);
+    background: var(--green-soft);
+}
+
+.pill-amber {
+    color: var(--amber);
+    background: var(--amber-soft);
+}
+
+.pill-red {
+    color: var(--red);
+    background: var(--red-soft);
+}
+
+
+/* ============================================================= */
+/* NARRATIVE GRID                                                */
+/* ============================================================= */
+
+.narrative-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.narrative-text {
+    margin: 0;
+
+    color: #344054;
+
+    font-size: 12px;
+    line-height: 1.52;
+}
+
+
+/* ============================================================= */
+/* EVIDENCE                                                      */
+/* ============================================================= */
+
+.evidence-card {
+    margin-bottom: 8px;
+}
+
+.evidence-header {
+    display: grid;
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr)
+        auto;
+
+    gap: 8px;
+
+    align-items: center;
+
+    margin-bottom: 7px;
+}
+
+.evidence-rank {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 6px;
+
+    color: var(--blue);
+    background: var(--blue-soft);
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.evidence-source {
+    min-width: 0;
+}
+
+.evidence-org {
+    color: var(--navy);
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.evidence-document {
+    overflow: hidden;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.evidence-page {
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+.evidence-quote {
+    border-left: 3px solid #cbd8e5;
+
+    padding-left: 10px;
+
+    color: #344054;
+
+    font-size: 11px;
+    line-height: 1.48;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+
+/* ============================================================= */
+/* PROVENANCE                                                    */
+/* ============================================================= */
+
+.provenance {
+    margin-top: 10px;
+}
+
+.provenance-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 8px;
+}
+
+.provenance-item {
+    min-width: 0;
+
+    padding: 7px 8px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    background: var(--surface-soft);
+}
+
+.provenance-label {
+    margin-bottom: 2px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.provenance-value {
+    overflow: hidden;
+
+    color: var(--text);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* ============================================================= */
+/* EMPTY / ERROR STATE                                            */
+/* ============================================================= */
+
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 260px;
+
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    background: var(--surface);
+
+    color: var(--muted);
+
+    text-align: center;
+}
+
+
+/* ============================================================= */
+/* RESPONSIVE                                                    */
+/* ============================================================= */
+
+@media (max-width: 950px) {
+
+    .context-strip {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .decision-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .provenance-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    #golem-app {
+        padding: 9px;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .context-strip,
+    .narrative-grid,
+    .provenance-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div id="golem-app">
+
+    <div class="message">
+        Select an agent in SAS Visual Analytics to load GOLEM intelligence.
+    </div>
+
+</div>
+
+
+<script>
+
+/* ============================================================= */
+/* GOLEM PHASE 7 DDC                                             */
+/*                                                              */
+/* Receives filtered data from SAS Visual Analytics.             */
+/*                                                              */
+/* Expected grain: ONE ROW PER SELECTED AGENT.                   */
+/* ============================================================= */
+
+
+/* ============================================================= */
+/* HTML ESCAPING                                                 */
+/* ============================================================= */
+
+function escapeHtml(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+        return "";
+    }
+
+    return String(value)
+
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+
+/* ============================================================= */
+/* FIELD NORMALIZATION                                           */
+/* ============================================================= */
+
+function normalizeName(value) {
+
+    return String(
+        value || ""
+    )
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+
+/* ============================================================= */
+/* HANDLE BOTH COMMON VA MESSAGE SHAPES                          */
+/* ============================================================= */
+
+function getResultData(message) {
+
+    if (!message) {
+        return null;
+    }
+
+    /*
+        Some VA versions deliver:
+
+        event.data.columns
+        event.data.data
+
+        Others can place the query result below event.data.data.
+
+        Support both.
+    */
+
+    if (
+        message.columns &&
+        Array.isArray(message.data)
+    ) {
+        return message;
+    }
+
+    if (
+        message.data &&
+        message.data.columns &&
+        Array.isArray(message.data.data)
+    ) {
+        return message.data;
+    }
+
+    return null;
+}
+
+
+/* ============================================================= */
+/* CONVERT FIRST VA ROW TO FIELD OBJECT                          */
+/* ============================================================= */
+
+function firstRowToObject(resultData) {
+
+    if (
+        !resultData ||
+        !Array.isArray(resultData.columns) ||
+        !Array.isArray(resultData.data) ||
+        resultData.data.length === 0
+    ) {
+        return null;
+    }
+
+    const columns = resultData.columns;
+    const values = resultData.data[0];
+
+    const row = {};
+
+    columns.forEach(
+        function(column, index) {
+
+            const candidates = [
+                column.name,
+                column.label
+            ];
+
+            candidates.forEach(
+                function(candidate) {
+
+                    if (!candidate) {
+                        return;
+                    }
+
+                    row[
+                        normalizeName(candidate)
+                    ] = values[index];
+
+                }
+            );
+
+        }
+    );
+
+    return row;
+}
+
+
+/* ============================================================= */
+/* FIELD GETTER                                                  */
+/* ============================================================= */
+
+function value(row, field, fallback = "—") {
+
+    const key = normalizeName(field);
+
+    if (
+        row &&
+        Object.prototype.hasOwnProperty.call(
+            row,
+            key
+        )
+    ) {
+
+        const v = row[key];
+
+        if (
+            v !== null &&
+            v !== undefined &&
+            String(v).trim() !== ""
+        ) {
+            return v;
+        }
+    }
+
+    return fallback;
+}
+
+
+/* ============================================================= */
+/* SIMPLE DISPLAY HELPERS                                        */
+/* ============================================================= */
+
+function pillClass(valueText) {
+
+    const v = String(
+        valueText || ""
+    ).toUpperCase();
+
+    if (
+        v.includes("CRITICAL") ||
+        v.includes("IMMEDIATE")
+    ) {
+        return "pill-red";
+    }
+
+    if (
+        v.includes("HIGH") ||
+        v.includes("URGENT")
+    ) {
+        return "pill-amber";
+    }
+
+    if (
+        v.includes("READY") ||
+        v.includes("PASS") ||
+        v.includes("SUPPORTED") ||
+        v.includes("GROUNDED") ||
+        v.includes("ALIGNED")
+    ) {
+        return "pill-green";
+    }
+
+    return "pill-blue";
+}
+
+
+/* ============================================================= */
+/* EVIDENCE CARD                                                 */
+/* ============================================================= */
+
+function evidenceCard(row, rank) {
+
+    const org =
+        value(
+            row,
+            `source_org_${rank}`
+        );
+
+    const documentName =
+        value(
+            row,
+            `source_document_${rank}`
+        );
+
+    const section =
+        value(
+            row,
+            `source_section_${rank}`,
+            ""
+        );
+
+    const page =
+        value(
+            row,
+            `source_page_${rank}`
+        );
+
+    const quote =
+        value(
+            row,
+            `source_quote_${rank}`
+        );
+
+
+    let sourceDescription =
+        escapeHtml(documentName);
+
+    if (section) {
+
+        sourceDescription +=
+            " · " +
+            escapeHtml(section);
+    }
+
+
+    return `
+        <div class="card evidence-card">
+
+            <div class="card-body">
+
+                <div class="evidence-header">
+
+                    <div class="evidence-rank">
+                        ${rank}
+                    </div>
+
+                    <div class="evidence-source">
+
+                        <div class="evidence-org">
+                            ${escapeHtml(org)}
+                        </div>
+
+                        <div class="evidence-document">
+                            ${sourceDescription}
+                        </div>
+
+                    </div>
+
+                    <div class="evidence-page">
+                        Page ${escapeHtml(page)}
+                    </div>
+
+                </div>
+
+                <div class="evidence-quote">
+                    ${escapeHtml(quote)}
+                </div>
+
+            </div>
+
+        </div>
+    `;
+}
+
+
+/* ============================================================= */
+/* MAIN RENDER                                                   */
+/* ============================================================= */
+
+function render(row) {
+
+    const app =
+        document.getElementById(
+            "golem-app"
+        );
+
+
+    if (!row) {
+
+        app.innerHTML = `
+            <div class="message">
+                No GOLEM intelligence record is available for the current selection.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    const agent =
+        value(
+            row,
+            "agent_id"
+        );
+
+    const intelligenceStatus =
+        value(
+            row,
+            "intelligence_status"
+        );
+
+    const modelRisk =
+        value(
+            row,
+            "model_risk_band"
+        );
+
+    const priority =
+        value(
+            row,
+            "priority_band"
+        );
+
+    const decision =
+        value(
+            row,
+            "decision_code"
+        );
+
+    const decisionRule =
+        value(
+            row,
+            "decision_rule_id"
+        );
+
+    const escalation =
+        value(
+            row,
+            "escalation_level"
+        );
+
+    const reviewHours =
+        value(
+            row,
+            "review_window_hours"
+        );
+
+    const action =
+        value(
+            row,
+            "action_code"
+        );
+
+    const actionRule =
+        value(
+            row,
+            "action_rule_id"
+        );
+
+    const alignment =
+        value(
+            row,
+            "action_alignment_flag"
+        );
+
+    const evidenceStatus =
+        value(
+            row,
+            "evidence_status"
+        );
+
+    const evidenceCount =
+        value(
+            row,
+            "verified_evidence_count"
+        );
+
+
+    const executiveSummary =
+        value(
+            row,
+            "executive_summary"
+        );
+
+    const whyThisAgent =
+        value(
+            row,
+            "why_this_agent"
+        );
+
+    const whyNow =
+        value(
+            row,
+            "why_now"
+        );
+
+    const actionExplanation =
+        value(
+            row,
+            "recommended_action_explanation"
+        );
+
+
+    const promptVersion =
+        value(
+            row,
+            "prompt_version"
+        );
+
+    const provider =
+        value(
+            row,
+            "llm_provider"
+        );
+
+    const model =
+        value(
+            row,
+            "llm_returned_model"
+        );
+
+    const generationStatus =
+        value(
+            row,
+            "generation_status"
+        );
+
+
+    app.innerHTML = `
+
+        <!-- ================================================== -->
+        <!-- HEADER                                             -->
+        <!-- ================================================== -->
+
+        <div class="header">
+
+            <div>
+
+                <h1 class="header-title">
+                    GOLEM Intelligence & Evidence
+                </h1>
+
+                <div class="header-subtitle">
+                    Deterministic explanation · verified evidence · decision provenance
+                </div>
+
+            </div>
+
+            <div class="header-status">
+
+                <span class="status-dot"></span>
+
+                ${escapeHtml(intelligenceStatus)}
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- CONTEXT                                            -->
+        <!-- ================================================== -->
+
+        <div class="context-strip">
+
+            <div class="context-item">
+
+                <div class="context-label">
+                    Agent
+                </div>
+
+                <div class="context-value">
+                    ${escapeHtml(agent)}
+                </div>
+
+            </div>
+
+
+            <div class="context-item">
+
+                <div class="context-label">
+                    Model Risk
+                </div>
+
+                <div class="context-value">
+                    ${escapeHtml(modelRisk)}
+                </div>
+
+            </div>
+
+
+            <div class="context-item">
+
+                <div class="context-label">
+                    Priority
+                </div>
+
+                <div class="context-value">
+                    ${escapeHtml(priority)}
+                </div>
+
+            </div>
+
+
+            <div class="context-item">
+
+                <div class="context-label">
+                    Evidence
+                </div>
+
+                <div class="context-value">
+                    ${escapeHtml(evidenceStatus)}
+                    ·
+                    ${escapeHtml(evidenceCount)} verified
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- DECISION + ACTION                                  -->
+        <!-- ================================================== -->
+
+        <div class="decision-grid">
+
+
+            <div class="card decision-main">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <div class="card-kicker">
+                            SAS Intelligent Decisioning
+                        </div>
+
+                        <h2 class="card-title">
+                            Decision
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <div class="hero-code">
+                        ${escapeHtml(decision)}
+                    </div>
+
+                    <div class="hero-description">
+                        ${escapeHtml(executiveSummary)}
+                    </div>
+
+                    <div class="hero-meta">
+
+                        <span class="pill pill-blue">
+                            Rule ${escapeHtml(decisionRule)}
+                        </span>
+
+                        <span class="pill ${pillClass(escalation)}">
+                            ${escapeHtml(escalation)}
+                        </span>
+
+                        <span class="pill pill-blue">
+                            ${escapeHtml(reviewHours)}h review
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card action-main">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <div class="card-kicker">
+                            Deterministic Recommended Action
+                        </div>
+
+                        <h2 class="card-title">
+                            Recommended Action
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <div class="hero-code">
+                        ${escapeHtml(action)}
+                    </div>
+
+                    <div class="hero-description">
+                        ${escapeHtml(actionExplanation)}
+                    </div>
+
+                    <div class="hero-meta">
+
+                        <span class="pill pill-blue">
+                            Rule ${escapeHtml(actionRule)}
+                        </span>
+
+                        <span class="pill ${pillClass(alignment)}">
+                            ${escapeHtml(alignment)}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- EXPLANATIONS                                       -->
+        <!-- ================================================== -->
+
+        <div class="narrative-grid">
+
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <h2 class="card-title">
+                        Why This Agent?
+                    </h2>
+
+                </div>
+
+                <div class="card-body">
+
+                    <p class="narrative-text">
+                        ${escapeHtml(whyThisAgent)}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <h2 class="card-title">
+                        Why Now?
+                    </h2>
+
+                </div>
+
+                <div class="card-body">
+
+                    <p class="narrative-text">
+                        ${escapeHtml(whyNow)}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- VERIFIED EVIDENCE                                  -->
+        <!-- ================================================== -->
+
+        <div class="card-header"
+             style="
+                border:1px solid var(--border);
+                border-radius:10px 10px 0 0;
+             ">
+
+            <div>
+
+                <div class="card-kicker">
+                    RAG · exact verified source text
+                </div>
+
+                <h2 class="card-title">
+                    Verified Evidence
+                </h2>
+
+            </div>
+
+            <span class="pill ${pillClass(evidenceStatus)}">
+                ${escapeHtml(evidenceStatus)}
+            </span>
+
+        </div>
+
+
+        ${evidenceCard(row, 1)}
+        ${evidenceCard(row, 2)}
+        ${evidenceCard(row, 3)}
+
+
+        <!-- ================================================== -->
+        <!-- PROVENANCE                                         -->
+        <!-- ================================================== -->
+
+        <div class="card provenance">
+
+            <div class="card-header">
+
+                <div>
+
+                    <div class="card-kicker">
+                        Audit trail
+                    </div>
+
+                    <h2 class="card-title">
+                        Decision & AI Provenance
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="card-body">
+
+                <div class="provenance-grid">
+
+
+                    <div class="provenance-item">
+
+                        <div class="provenance-label">
+                            Decision Rule
+                        </div>
+
+                        <div class="provenance-value">
+                            ${escapeHtml(decisionRule)}
+                        </div>
+
+                    </div>
+
+
+                    <div class="provenance-item">
+
+                        <div class="provenance-label">
+                            Action Rule
+                        </div>
+
+                        <div class="provenance-value">
+                            ${escapeHtml(actionRule)}
+                        </div>
+
+                    </div>
+
+
+                    <div class="provenance-item">
+
+                        <div class="provenance-label">
+                            Prompt
+                        </div>
+
+                        <div class="provenance-value">
+                            ${escapeHtml(promptVersion)}
+                        </div>
+
+                    </div>
+
+
+                    <div class="provenance-item">
+
+                        <div class="provenance-label">
+                            Generation
+                        </div>
+
+                        <div class="provenance-value">
+                            ${escapeHtml(generationStatus)}
+                        </div>
+
+                    </div>
+
+
+                    <div class="provenance-item">
+
+                        <div class="provenance-label">
+                            Provider
+                        </div>
+
+                        <div class="provenance-value">
+                            ${escapeHtml(provider)}
+                        </div>
+
+                    </div>
+
+
+                    <div class="provenance-item">
+
+                        <div class="provenance-label">
+                            Model
+                        </div>
+
+                        <div class="provenance-value">
+                            ${escapeHtml(model)}
+                        </div>
+
+                    </div>
+
+
+                    <div class="provenance-item">
+
+                        <div class="provenance-label">
+                            Grounding
+                        </div>
+
+                        <div class="provenance-value">
+                            ${escapeHtml(
+                                value(
+                                    row,
+                                    "grounding_status"
+                                )
+                            )}
+                        </div>
+
+                    </div>
+
+
+                    <div class="provenance-item">
+
+                        <div class="provenance-label">
+                            Evidence Status
+                        </div>
+
+                        <div class="provenance-value">
+                            ${escapeHtml(evidenceStatus)}
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+/* ============================================================= */
+/* SAS VA MESSAGE LISTENER                                        */
+/* ============================================================= */
+
+function onVAData(event) {
+
+    if (
+        !event ||
+        !event.data
+    ) {
+        return;
+    }
+
+
+    const resultData =
+        getResultData(
+            event.data
+        );
+
+
+    if (!resultData) {
+        return;
+    }
+
+
+    const row =
+        firstRowToObject(
+            resultData
+        );
+
+
+    render(
+        row
+    );
+}
+
+
+if (
+    window.addEventListener
+) {
+
+    window.addEventListener(
+        "message",
+        onVAData,
+        false
+    );
+
+}
+else {
+
+    window.attachEvent(
+        "onmessage",
+        onVAData
+    );
+
+}
+
+</script>
+
+</body>
+</html>
